@@ -8,7 +8,7 @@ import instalogo from "../img/instalogo-1.webp";
 
 <section class="grid_1-3">
   <h3>ÅBENINGSTIDER</h3>
-<div class="flex-row">
+<div class="flex-row" id="tid-info">
     <div class="dage">
         <p>Mandag</p>
         <p>Tirsdag</p>
@@ -29,21 +29,21 @@ import instalogo from "../img/instalogo-1.webp";
     </div>
 </div>
 
-<div>
-<a href="/"><img src={Kort.src} alt="kort" /></a>
+<div id="lokation-info">
+<a href="/"><img src={Kort.src} alt="kort" id="kort"/></a>
 <p>Frederiksborgvej 84,</p>
 <p>2400 København NV</p>
 </div>
 
-<div>
+<div id="kontakt-info flex-end">
     <div class="flex-row">
-        <a href="/"><img src={instalogo.src} alt="kort" /></a>
+        <a href="/"><img src={instalogo.src} alt="instagram logo" /></a>
         <h3>NV-Foto</h3>
     </div>
     <h3>KONTAKT OS:</h3>
     <p>+45 35 81 80 71</p>
     <p>post@nv-foto.dk</p>
-    <a href="/"><img src={logo.src} alt="kort" /></a>
+    <a href="/"><img src={logo.src} alt="logo" /></a>
 </div>
 
 
@@ -51,9 +51,14 @@ import instalogo from "../img/instalogo-1.webp";
 
 <style>
 
-img{
+img {
     max-width: 100%;
-    height: auto;
+    height: 50px;
+}
+
+#lokation-info img{
+    max-width: 100%;
+    height: 200px;
 }
 
 h3, p, li, ul{
@@ -66,7 +71,20 @@ section{
 }
 
 .grid_1-3{
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#tid-info{
+    grid-column: 1;
+}
+
+#lokation-info{
+    grid-column: 2;
+}
+
+#kontakt-info{
+    grid-column: 3;
 }
 
 .flex-row{
@@ -79,6 +97,13 @@ section{
 }
 
   @media (max-width: 800px) {
- 
+
+ .grid_1-3{
+    grid-template-columns: 1fr;
+}
+
+#tid-info, #lokation-info, #kontakt-info{
+    grid-column: 1;
+}
   }
 </style>
