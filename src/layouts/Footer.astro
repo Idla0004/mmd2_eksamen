@@ -1,0 +1,84 @@
+---
+import "../css/general.css";
+import Kort from "../img/Kort.webp";
+import logo from "../img/NVFotologo.webp";
+import instalogo from "../img/instalogo-1.webp";
+
+---
+
+<section class="grid_1-3">
+  <h3>ÅBENINGSTIDER</h3>
+<div class="flex-row">
+    <div class="dage">
+        <p>Mandag</p>
+        <p>Tirsdag</p>
+        <p>Onsdag</p>
+        <p>Torsdag</p>
+        <p>Fredag</p>
+        <p>Lørdag</p>
+        <p>Søndag</p>
+    </div>
+    <div class="tider">
+        <p>9.00 - 17.30</p>
+        <p>9.00 - 17.30</p>
+        <p>9.00 - 17.30</p>
+        <p>9.00 - 17.30</p>
+        <p>9.00 - 17.30</p>
+        <p>9.00 - 17.30</p>
+        <p>LUKKET</p>
+    </div>
+</div>
+
+<div>
+<a href="/"><img src={Kort.src} alt="kort" /></a>
+<p>Frederiksborgvej 84,</p>
+<p>2400 København NV</p>
+</div>
+
+<div>
+    <div class="flex-row">
+        <a href="/"><img src={instalogo.src} alt="kort" /></a>
+        <h3>NV-Foto</h3>
+    </div>
+    <h3>KONTAKT OS:</h3>
+    <p>+45 35 81 80 71</p>
+    <p>post@nv-foto.dk</p>
+    <a href="/"><img src={logo.src} alt="kort" /></a>
+</div>
+
+
+</section>
+
+<style>
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+h3, p, li, ul{
+    color: white;
+}
+
+section{
+    padding: 30px;
+    background-color: #091F5B;
+}
+
+.grid_1-3{
+    
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row div:nth-child(2){
+    margin-left: 30px;
+}
+
+  @media (max-width: 800px) {
+ 
+  }
+</style>
