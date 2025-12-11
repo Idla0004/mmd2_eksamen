@@ -23,7 +23,7 @@ import gul_bund from "../img/gul_bolge_bund.webp"
         <p>NV Foto er drevet af entusiaster, der brænder for at bevare og dele glæden ved analog fotografering. 
 Vi  sælger og køber brugte kameraer, fremkalder dine film, og tilbyder alt, hvad du har brug for til din analoge rejse.
 Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider dig hele vejen. Besøg os i butikken, og lad os hjælpe dig med at genskabe magien i at tage billeder - én rulle film ad gangen.</p></div>
-<img src={Objektiv.src} alt="Illustration af en kameralinse"></section>
+<img id="objektiv" src={Objektiv.src} alt="Illustration af en kameralinse"></section>
     </div>
 <img class="streach" src={gul_bund.src} alt="">
 <section>
@@ -34,8 +34,8 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
     <section class="grid_1-1">
 <article class="dark_blue">
     <div class="flex_r">
-    <img class="dark_blue_img" src={kontorartikler.src} alt="Illustration af printer samt rammer">
-<h3 class="font_light">RAMMER & KONTORARTIKLER</h3></div>
+    <img class="dark_blue_img" src={kontorartikler.src} alt="Illustration af printer, samt rammer">
+<h3 class="font_light rammer_kontor">RAMMER & KONTORARTIKLER</h3></div>
 <p class="font_light">I butikken finder du et udvalg af kontorartikler. Her kan du gå på opdagelse i alt fra blækpatroner og papir, til skriveredskaber, ringbind og andre praktiske redskaber, der gør hverdagen lidt lettere - uanset om det er til studie, arbejde eller hjemmekontoret.</p>
 <p class="font_light">Du kan også finde et udvalg af billederammer, dine bedste øjeblikke fortjener en plads i hjemmet.</p>
 </article>
@@ -69,16 +69,13 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
         margin-bottom: 100px;
         margin-top: 90px;
     }
-    img, div {
-        margin: 0;
-    }
     .gul_bg {
         background-color: #ffd87d;
+        
     }
     .streach {
         width: 100vw;
-        margin-top: -2px;
-        margin-bottom: -5px;
+        display: block;
     }
     .light_blue {
         background-color: #E5F3FF;
@@ -93,31 +90,49 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
     display: flex;
     flex-direction: row;
    }
+    #objektiv {
+        max-height: 300px;
+        margin-top: 25px;
+        display: none;
+    }
     dotlottie-wc {
         object-fit: cover;
     }
+    img, div {
+        margin: 0;
+    }
      img {
-        max-height: 370px;
         width: auto;
         margin: 0;
      }
      section {
 margin: 0 auto;
 max-width: 500px;
+padding-left: 10px;
+padding-right: 10px;
      }
      h1 {font-size: 48px;
     margin: 0;}
     h2 {
         margin: 0;
         padding-top: 20px;
+        margin-bottom: 35px;
     }
-    h3 {margin: 0;
+    h3 {
     max-width: 310px;}
+    p {
+        margin: 0;
+        padding-bottom: 35px;
+    }
      .dark_blue
-     {background-color: #091F5B;
+     {
+background-color: #091F5B;
     border-radius: 25px;
 padding: 20px;
-margin-bottom: 40px;}
+margin-bottom: 40px;
+ position: relative;
+    overflow: visible;
+}
 .dark_blue_img {
     max-height: 160px;
     width: auto;
@@ -130,7 +145,39 @@ margin-bottom: 40px;}
     max-height: 80px;
     width: auto;
 }
+@media (max-width: 799px) {
+    .flex_r {
+        position: relative;
+        display: flex;
+        flex-direction: column; 
+    }
+    .dark_blue_img_moenter {
+        position: absolute;
+        top: -8%;
+        left: 25%;
+    }
+
+    .dark_blue_img {
+        position: absolute;
+       top: -90%;
+       left: 25%;
+        margin: 0 auto;
+    }
+
+    .rammer_kontor {
+        margin-top: 60px;
+    }
+
+    .dark_blue {
+        padding-top: 60px;
+        margin-top: 100px;
+    }
+}
     @media (min-width: 800px) {
+        #objektiv {
+        display: block;
+    padding-bottom: 10px;
+    }
         .hero {
         margin-bottom: 150px;
         margin-top: 120px;
@@ -140,7 +187,6 @@ margin-bottom: 40px;}
     flex-direction: row;
         }
         dotlottie-wc {
-        object-fit: cover;
         height: auto;
         width: 580px;
     }
@@ -150,12 +196,21 @@ margin-bottom: 40px;}
      p {
         max-width: 760px;
      }
+     .rammer_kontor {
+        padding-top: 70px;
+     }
+     .dark_blue {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: start;
+     }
      .dark_blue_img_moenter {
-        display: flex;
-        flex-direction: row;
-        align-items: end;
+        justify-self: end;
     max-height: 100px;
     width: auto;
+}
+.dark_blue_img {
+    order: 1;
 }
     .grid_1-1 {
         display: grid;
