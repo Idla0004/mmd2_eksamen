@@ -2,30 +2,63 @@
 import "../css/general.css";
 import filmrulle from "../img/filmrulle.webp";
 import pas from "../img/pas.webp";
-import analig from "../img/oldschoolanalog.webp";
+import analog from "../img/oldschoolanalog.webp";
 ---
-<section>
-    <article>
+<section class="karrusel_wrapper">
+    <div class="karrusel">
+    <article class="karrusel_item">
     <img src={filmrulle.src} alt="">
     <span></span>
     <a href="/fremkald">FREMKALD</a>
     </article>
 
-    <article>
+    <article class="karrusel_item">
     <img src={pas.src} alt="Illustration af et åbent pas">
     <span></span>
     <a href="/pasfoto">PASFOTO</a>
     </article>
 
-    <article>
-    <img src={analig.src} alt="">
+    <article class="karrusel_item">
+    <img src={analog.src} alt="Illustration af et analog kamera">
     <span></span>
     <a href="/kamera">KAMERA</a>
     </article>
+    </div>
+</section>
+<section class="mobile_only">
+    <button id="prev">venstre</button>
+    <button id="next">højre</button>
 </section>
 
 <style>
-
+    @media (max-width: 799px)
+    {.karrusel_wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 770px;
+        margin: 20 auto;
+    }
+    .karrusel {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.3s ease;
+    }
+    .karrusel_item {
+        min-width: 320px;
+    }
+}
+@media (min-width: 800px){
+    .mobile_only {
+        display: none;
+    }
+    .karrusel {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 60px;
+        justify-content: space-between;
+    }
+}
     article {
         width: 320px;
         height: 320px;
@@ -68,10 +101,49 @@ position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    section {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 60px;
-        justify-content: space-between;
-    }
 </style>
+
+<script>
+    //Venter på hele DOM er loaded før script køres
+    window.addEventListener("DOMContentLoaded", () => {
+
+        //henter di vigtigeste elementer fra DOM
+  const karrusel = document.querySelector(".karrusel")!;
+  const prev = document.querySelector("#prev")!;
+  const next = document.querySelector("#next")!;
+
+  //Holder styr på hvilket card er aktivt/synligt
+  let index = 0;
+
+  //flytter karusellen baseret på index
+  function updateKarrusel() {
+  const firstChild = karrusel.children[0];
+  const itemWidth = firstChild.offsetWidth;  //bredden af et card
+  karrusel.style.transform = `translateX(${-index * itemWidth}px)`; //Flytter karusellen ved at tage bredden af et card(item) og gange det med aktuel index, transform delen hænger sammen med css
+}
+
+//Hvor mange kort der er synlige af gangen (siden den er beregnet på mobil har jeg sat den på 1)
+function visibleCard() {
+ return 1;
+  }
+
+
+  //Klik på højre knap -> gå frem
+next.addEventListener("click", () => {
+    const visible = visibleCard();
+
+    //stop hvis det er det sidste kort
+    if (index < karrusel.children.length - visible) index++;
+updateKarrusel(); //opdaterer visning
+})
+
+//klik på venstre knap <- gå tilbage
+prev.addEventListener("click", () => {
+
+//stop hvis vi er ved start (index kan ikke gå i minus)
+if (index > 0) index--;
+
+updateKarrusel(); //opdaterer visning
+});
+});
+</script>
