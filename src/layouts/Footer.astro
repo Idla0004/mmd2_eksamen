@@ -31,12 +31,14 @@ import instalogo from "../img/instalogo-1.webp";
 
 <div id="lokation-info">
 <a href="/"><img src={Kort.src} alt="kort" id="kort"/></a>
+
 <p>Frederiksborgvej 84,</p>
 <p>2400 København NV</p>
+
 </div>
 
-<div id="kontakt-info flex-end">
-    <div class="flex-row">
+<div id="kontakt-info">
+    <div id="insta">
         <a href="/"><img src={instalogo.src} alt="instagram logo" /></a>
         <h3>NV-Foto</h3>
     </div>
@@ -58,7 +60,7 @@ img {
 
 #lokation-info img{
     max-width: 100%;
-    height: 200px;
+    height: 220px;
 }
 
 h3, p, li, ul{
@@ -73,6 +75,7 @@ section{
 .grid_1-3{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
 }
 
 #tid-info{
@@ -83,8 +86,23 @@ section{
     grid-column: 2;
 }
 
+#lokation-info p{
+    margin-inline-start: 40px;
+}
+
+
 #kontakt-info{
     grid-column: 3;
+}
+
+#insta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#insta h3{
+    margin-inline-start: 15px;
 }
 
 .flex-row{
@@ -96,14 +114,18 @@ section{
     margin-left: 30px;
 }
 
-  @media (max-width: 800px) {
+
+  @media (max-width: 1000px) {
 
  .grid_1-3{
     grid-template-columns: 1fr;
+    gap: 1em;
+    place-items: unset;
 }
 
 #tid-info, #lokation-info, #kontakt-info{
     grid-column: 1;
 }
+
   }
 </style>
