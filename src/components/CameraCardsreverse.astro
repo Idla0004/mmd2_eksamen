@@ -1,5 +1,5 @@
 ---
-const { src, headline, bodytext } = Astro.props;
+const { src, headline, bodytext, blitzSrc, blitzStyle } = Astro.props;
 import Circle from "../img/circleelement.webp";
 ---
 
@@ -10,7 +10,13 @@ import Circle from "../img/circleelement.webp";
       <p>{bodytext}</p>
     </div>
     <div class="img-container">
-      <img src={src} alt="Point and shoot kamera" class="Camimg" />
+      <img src={src} alt="Camera" class="Camimg" />
+      <img
+        src={blitzSrc}
+        alt="Blitz effect"
+        class="Blitzimg"
+        style={blitzStyle}
+      />
       <img src={Circle.src} alt="Circle element" class="Circle" />
     </div>
   </div>
@@ -52,6 +58,23 @@ import Circle from "../img/circleelement.webp";
     left: 15%;
     bottom: 5%;
   }
+  .Blitzimg {
+    position: absolute;
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .img-container:hover .Blitzimg {
+    opacity: 1;
+  }
 
   .Circle {
     position: absolute;
@@ -82,19 +105,21 @@ import Circle from "../img/circleelement.webp";
       flex-direction: column;
       text-align: center;
     }
-
     .img-container {
-      margin-left: 0;
       margin-top: 20px;
       order: -1;
     }
-
     .Camimg {
-      transform: scaleX(-1) translateX(0%);
+      margin: auto;
+      left: 2%;
+      transform: scaleX(1) translateX(0%);
+      right: 0;
     }
-
+    .Blitzimg {
+      right: 0;
+      left: 2%;
+    }
     .Circle {
-      bottom: -20%;
       right: 10%;
     }
   }
