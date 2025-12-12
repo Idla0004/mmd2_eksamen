@@ -1,109 +1,139 @@
 ---
 const { data } = Astro.props;
 ---
-<section class="grid">
 
-  <div>
-    <h2>{data.overskrift}</h2>
-     <h3>{data.underoverskrift_1}</h3>
-    <p>{data.broedtekst_1}</p>
-    <p>{data.broedtekst_2}</p>
+<section class="pris-grid">
+
+  <!-- VENSTRE SIDE – hardcodet tekst -->
+  <div class="left">
+
+    <!-- FILM -->
+    <div class="section-block">
+      <h2>Film</h2>
+      <h3>135 mm</h3>
+      <p>1–2 dage</p>
+      <p>Engangskamera 10 kr ekstra — ved APS er der gebyr på 10 til 50 kr (alt efter hvad der skal laves)</p>
+
+      <h3>120 mm</h3>
+      <p>1–2 dage</p>
+
+      <h3>APS</h3>
+      <p>Ekstra gebyr afhængig af behandling</p>
+    </div>
+
+    <!-- DIGITAL -->
+    <div class="section-block">
+      <h2>Fra digital medie (smartphone, usb...)</h2>
+      <h3>Digitale billeder til papirfotos</h3>
+      <p>1–2 dage</p>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="section-block">
+      <h2>Båndvideo</h2>
+
+      <h3>VHS til DVD (eller usb)</h3>
+      <p>2–5 dage</p>
+
+      <h3>Smal film til digitalt</h3>
+      <p>10–30 dage</p>
+    </div>
+
   </div>
 
-  <div id="test">
-    
-    <div class="pris-row">
+  <!-- HØJRE SIDE – dynamisk prisdata -->
+  <div class="right">
+
+    <!-- FILM priser -->
+    <div class="price-row">
       <span>{data.pristekst_1}</span>
-      <span>{data.pris_1}</span>
+      <span class="pris">{data.pris_1}</span>
     </div>
 
-    <div class="pris-row">
+    <div class="price-row">
       <span>{data.pristekst_2}</span>
-      <span>{data.pris_2}</span>
+      <span class="pris">{data.pris_2}</span>
     </div>
 
-    <div class="pris-row">
+    <div class="price-row">
       <span>{data.pristekst_3}</span>
-      <span>{data.pris_3}</span>
+      <span class="pris">{data.pris_3}</span>
     </div>
-  </div>
 
-<div class="linje">
-  <h3>{data.underoverskrift_2}</h3>
-  <p>{data.broedtekst_1}</p>
-</div>
+    <div class="separator"></div>
 
-  <div>
-    <div class="pris-row">
+    <!-- DIGITAL priser -->
+    <div class="price-row">
       <span>{data.pristekst_4}</span>
-      <span>{data.pris_4}</span>
+      <span class="pris">{data.pris_4}</span>
     </div>
-  </div>
 
-<div>
-  <h3>{data.underoverskrift_3}</h3>
-  <p>{data.dagetekst_1}</p>
-  </div>
-  <div>
-    <div class="pris-row">
+    <div class="separator"></div>
+
+    <!-- VIDEO priser -->
+    <div class="price-row">
       <span>{data.pristekst_5}</span>
-      <span>{data.pris_5}</span>
+      <span class="pris">{data.pris_5}</span>
     </div>
 
-    <div class="pris-row">
+    <div class="price-row">
       <span>{data.pristekst_6}</span>
-      <span>{data.pris_6}</span>
+      <span class="pris">{data.pris_6}</span>
     </div>
 
-    <div class="pris-row">
+    <div class="price-row">
       <span>{data.pristekst_7}</span>
-      <span>{data.pris_7}</span>
+      <span class="pris">{data.pris_7}</span>
     </div>
-  </div>
 
+  </div>
 </section>
 
+
 <style>
-.grid {
+.pris-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
+  gap: 60px;
   padding: 40px 0;
+  border-bottom: 1px solid #dcdcdc;
 }
 
-#test{}
-
-
-.pris-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  padding: 10px 0;
-  border-bottom: 1px solid #00071A;
+.section-block {
+  margin-bottom: 45px;
 }
 
-
-
-section {
-  margin-bottom: 80px;
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  position: relative;
 }
 
-h2 {
-  margin-bottom: 20px;
-  font-size: 1.8rem;
+/* LANGE LINJER SOM I PROTOTYPEN */
+.price-row span:first-child {
+  flex-grow: 1;
+  border-bottom: 1px dotted #bbb; /* kan ændres til solid */
+  padding-right: 10px;
+}
+
+.price-row .pris {
+  text-align: right;
+  min-width: 90px;
+  padding-left: 10px;
+  background: white; /* så linjen ikke kører hen over tallet */
   font-weight: 600;
 }
 
-h3 {
-  margin-top: 25px;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-  font-weight: 600;
+.separator {
+  height: 1px;
+  background-color: #dadada;
+  margin: 18px 0;
 }
 
-p,
-span {
-  font-family: montserrat-r;
-  font-size: 20px;
-  margin: 4px 0;
+@media (max-width: 850px) {
+  .pris-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
