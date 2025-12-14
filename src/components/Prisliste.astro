@@ -13,7 +13,7 @@ import CTAbtn from "./CTAbtn.astro";
         <h2>Film</h2>
         <h3>135 mm</h3>
         <p>1–2 dage</p>
-        <p>Engangskamera 10 kr ekstra — ved APS er der gebyr på 10 til 50 kr</p>
+        <p>Engangskamera 10 kr ekstra — ved APS er der gebyr på 10 til 50 kr alt efter hvad der skal laves. </p>
 
         <h3>120 mm</h3>
         <p>1–2 dage</p>
@@ -45,11 +45,15 @@ import CTAbtn from "./CTAbtn.astro";
 
   </div>
 
-  <!-- HØJRE SIDE — priser (samme struktur, men ændrer sig pr. id) -->
+
   <div class="right">
 
+   
     {id === 1 && (
       <>
+       <div class="grid-price">
+      <div class="box">
+      </div >
       <div class="box">
         <div class="price-row"><span>{data.pristekst_1}</span><span class="pris">{data.pris_1}</span></div>
         <div class="price-row"><span>{data.pristekst_2}</span><span class="pris">{data.pris_2}</span></div>
@@ -62,6 +66,7 @@ import CTAbtn from "./CTAbtn.astro";
         <div class="price-row"><span>{data.pristekst_5}</span><span class="pris">{data.pris_5}</span></div>
         <div class="price-row"><span>{data.pristekst_6}</span><span class="pris">{data.pris_6}</span></div>
         <div class="price-row"><span>{data.pristekst_7}</span><span class="pris">{data.pris_7}</span></div>
+      </div>
       </div>
       </>
     )}
@@ -82,8 +87,12 @@ import CTAbtn from "./CTAbtn.astro";
 
     {id === 3 && (
       <>
+      <div class="box">
         <div class="price-row"><span>{data.pristekst_1}</span><span class="pris">{data.pris_1}</span></div>
+        </div>
+        <div class="box">
         <div class="price-row"><span>{data.pristekst_2}</span><span class="pris">{data.pris_2}</span></div>
+        </div>
       </>
     )}
   </div>
@@ -91,6 +100,13 @@ import CTAbtn from "./CTAbtn.astro";
 </section>
 
 <style>
+
+.grid-price{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 200px 100px 100px 100px;
+  gap: 1em;
+}
 
   .box{
     background-color: aquamarine;
