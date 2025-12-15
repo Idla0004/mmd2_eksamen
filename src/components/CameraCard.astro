@@ -7,7 +7,7 @@ import Circle from "../img/circleelement.webp";
   <div class="img-text-container">
     <div class="img-container">
       <img src={src} alt="Camera" class="Camimg" />
-      <img src={hoverSrc} alt="Camera Hover" class="Camimg hover-img" />
+      <img src={hoverSrc} alt="Camera Hover" class="hover-img" />
       <img src={Circle.src} alt="Circle element" class="Circle" />
     </div>
     <div class="text-container">
@@ -16,6 +16,35 @@ import Circle from "../img/circleelement.webp";
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imgContainers = document.querySelectorAll(".img-container");
+
+    imgContainers.forEach((container) => {
+      container.addEventListener("touchstart", function (e) {
+        const hoverImg = this.querySelector(".hover-img");
+        if (hoverImg) {
+          hoverImg.style.opacity = "1";
+        }
+      });
+
+      container.addEventListener("touchmove", function (e) {
+        const hoverImg = this.querySelector(".hover-img");
+        if (hoverImg) {
+          hoverImg.style.opacity = "1";
+        }
+      });
+
+      container.addEventListener("touchend", function (e) {
+        const hoverImg = this.querySelector(".hover-img");
+        if (hoverImg) {
+          hoverImg.style.opacity = "0";
+        }
+      });
+    });
+  });
+</script>
 
 <style>
   .camera-section {

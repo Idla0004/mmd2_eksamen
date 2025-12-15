@@ -101,28 +101,6 @@ import CTAbtn from "../components/CTAbtn.astro";
   </section></Layout
 >
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const imgContainers = document.querySelectorAll(".img-container");
-
-    imgContainers.forEach((container) => {
-      container.addEventListener("touchstart", function (e) {
-        const hoverImg = this.querySelector(".hover-img");
-        if (hoverImg) {
-          hoverImg.style.opacity = "1";
-        }
-      });
-
-      container.addEventListener("touchend", function (e) {
-        const hoverImg = this.querySelector(".hover-img");
-        if (hoverImg) {
-          hoverImg.style.opacity = "0";
-        }
-      });
-    });
-  });
-</script>
-
 <style>
   html {
     scroll-behavior: smooth;
