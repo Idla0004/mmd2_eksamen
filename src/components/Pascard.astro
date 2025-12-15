@@ -1,0 +1,57 @@
+---
+const { src, H2, Ptext1, Ptext2 } = Astro.props;
+---
+
+<section class="pas-section">
+  <div class="pasimg-container">
+    <img src={src} alt="Passport illustration" class="passportillustration" />
+  </div>
+  <div class="text-container">
+    <h2>{H2}</h2>
+    <p>{Ptext1}</p>
+    <p>{Ptext2}</p>
+  </div>
+</section>
+
+<style>
+  .passportillustration {
+    width: 300px;
+    padding: 20px 20px;
+  }
+
+  h2,
+  p {
+    padding: 20px 40px;  }
+
+p {
+  max-width: 80%;
+}
+
+  .pas-section {
+    background-color: #ffd87d;
+    display: flex;
+    flex-direction: row;
+padding: 10px;
+    border-radius: 10px;
+  }	
+
+  @media (max-width: 1000px) {
+  .pas-section {
+      margin: auto;
+      width: calc(100% - 20px);
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .passportillustration {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+    
+  .pasimg-container {
+    margin: auto;
+  }
+
+</style>
+
+
