@@ -19,13 +19,8 @@ const { src, H2, Ptext1, Ptext2 } = Astro.props;
     padding: 20px 20px;
   }
 
-  h2,
-  p {
+  .text-container {
     padding: 20px 10px;
-  }
-
-  .text-container p {
-    max-width: 80%;
   }
 
   .pas-section {
@@ -38,12 +33,9 @@ const { src, H2, Ptext1, Ptext2 } = Astro.props;
 
   @media (max-width: 1000px) {
     .pas-section {
-      padding: 20;
-      flex-direction: column;
-    }
-
-    .text-container {
-      padding: 20px 10px;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .passportillustration {
@@ -54,9 +46,6 @@ const { src, H2, Ptext1, Ptext2 } = Astro.props;
 
     .pasimg-container {
       margin: auto;
-    }
-    .text-container p {
-      max-width: 100%;
     }
   }
 </style>
