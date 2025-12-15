@@ -8,6 +8,7 @@ import Oldschool from "../img/oldschoolanalog.webp";
 import Engangskamera from "../img/engangskamera.webp";
 import Instax from "../img/instax.webp";
 import Tilbehor from "../img/flash.webp";
+import Tilbehorhover from "../img/flashhover.webp";
 import InfoBox from "../components/InfoboxBlue.astro";
 import PointnshootHover from "../img/pointnshoothover.webp";
 import OldschoolHover from "../img/oldschoolanaloghover.webp";
@@ -21,7 +22,7 @@ import CameraCardnohover from "../components/CameraCardnohover.astro";
     <div class="introtext">
       <h1>KAMERA</h1>
       <p>
-        Hos NV Foto sælger vi brugte Analog kamera samt tilbehør til dit kamera.
+        Hos NV Foto sælger vi brugte analog kamera samt tilbehør til dit kamera.
         Vi tester vi altid de brugte kamera inden vi sætter dem på hylden så du
         kan være tryg ved, at alt fungerer præcis som det skal.
       </p>
@@ -80,8 +81,9 @@ import CameraCardnohover from "../components/CameraCardnohover.astro";
         </ul>
       </InfoBox>
     </div>
-    <CameraCardnohover
+    <CameraCard
       src={Tilbehor.src}
+      hoverSrc={Tilbehorhover.src}
       headline="KAMERA TILBEHØR"
       bodytext="Hos NV Foto finder du alt det tilbehør, der gør din fotografoplevelse endnu bedre. Uanset om du leder efter det perfekte objektiv, en UV-linse, en blitz, eller en solidt tripod, vi har det, der gør dit kamera endnu mere alsidigt. Kom forbi og udforsk, hvordan det rette tilbehør kan forvandle dine øjeblikke til noget ekstraordinært."
     />
@@ -148,7 +150,7 @@ import CameraCardnohover from "../components/CameraCardnohover.astro";
     margin: 20px 0;
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1300px) {
     .infoboxes-container {
       grid-template-columns: 1fr;
       margin: 20px 0;
