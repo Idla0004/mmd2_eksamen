@@ -21,9 +21,9 @@ import Priskort from "../components/Priskort.astro";
         
 
         <div class="box flex" >
-            <CTAbtn>Film</CTAbtn>
-            <CTAbtn>Digitalt medie</CTAbtn>
-            <CTAbtn>Båndvideo</CTAbtn>
+            <CTAbtn href="#film-pris" aria-label="Film">Film</CTAbtn>
+            <CTAbtn href="#digital-pris" aria-label="Digitalt medie">Digitalt medie</CTAbtn>
+            <CTAbtn href="#video-pris" aria-label="Båndvideo">Båndvideo</CTAbtn>
         </div>
 
 
@@ -59,6 +59,14 @@ import Priskort from "../components/Priskort.astro";
 </section>
 
 <style>
+html{
+    scroll-behavior: smooth;
+}
+
+#film-pris, #digital-pris, #video-pris{
+    scroll-margin-top: 60px;
+}
+
 .fremkald-side{
     margin: auto 130px;
     display: flex;
