@@ -38,7 +38,7 @@ import instalogo from "../img/iglogo.webp";
   <div id="kontakt-info">
     <div id="insta">
       <a href="https://www.instagram.com/nv.foto.dk/" target="_blank"
-        ><img src={instalogo.src} alt="instagram logo" /></a
+        ><img src={instalogo.src} alt="instagram logo" id="IGlogo" /></a
       >
       <h3>NV-Foto</h3>
     </div>
@@ -46,7 +46,7 @@ import instalogo from "../img/iglogo.webp";
     <p>+45 35 81 80 71</p>
     <p>post@nv-foto.dk</p>
     <a href="https://www.instagram.com/nv.foto.dk/" target="_blank"
-      ><img src={logo.src} alt="instagram logo" id="IGlogo" /></a
+      ><img src={logo.src} alt="logo" id="logo" /></a
     >
   </div>
 </section>
@@ -54,7 +54,13 @@ import instalogo from "../img/iglogo.webp";
 <style>
   #IGlogo {
     max-width: 100%;
-    height: 50px;
+    max-width: 50px;
+  }
+
+  #logo {
+    max-width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
   }
 
   #kort {
