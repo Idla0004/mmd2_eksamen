@@ -22,14 +22,13 @@ import iglogo from "../img/iglogoblue.webp";
       <dotlottie-wc
         src="https://lottie.host/17751df1-2dcd-45cb-8e2c-555116030c99/NIVRt20woD.lottie"
         style="height: 380px;"
-        aria-label="Lottie animation"
-        loading="lazy"
+        preload="none"
         autoplay
         loop></dotlottie-wc>
     </div>
     <h1>Analog magi i et digitalt univers, kom og mød kameraer med sjæl.</h1>
   </section>
-  <img class="streach" src={gul_top.src} alt="" />
+  <img class="streach" src={gul_top.src} alt="Gul baggrund" />
   <div class="gul_bg">
     <section class="grid_3-1">
       <div>
@@ -182,6 +181,7 @@ import iglogo from "../img/iglogoblue.webp";
   }
   .streach {
     width: 100vw;
+    max-width: 100%;
     display: block;
   }
   .light_blue {
@@ -200,7 +200,10 @@ import iglogo from "../img/iglogoblue.webp";
   #objektiv {
     max-height: 300px;
     margin-top: 25px;
-    display: none;
+    opacity: 1;
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
   }
   dotlottie-wc {
     object-fit: cover;
